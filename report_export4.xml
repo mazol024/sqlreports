@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<displays>
+<display id="88b770a6-016c-1000-8002-c0a80144a3fa" type="" style="Table" enable="true">
+	<name><![CDATA[NotUpdatedDevices]]></name>
+	<description><![CDATA[Updated]]></description>
+	<tooltip><![CDATA[]]></tooltip>
+	<drillclass><![CDATA[]]></drillclass>
+	<CustomValues>
+		<TYPE><![CDATA[horizontal]]></TYPE>
+	</CustomValues>
+	<query>
+		<sql><![CDATA[select errstats.deviceid as "Vehicle Number", 
+unit.depotid as "DepotId.See VARIO_DEPOT",
+loadstat.loadeduntil as "Last Time"
+from 
+UM_LOADINGSTATISTICSERROR as errstats,
+UM_ARCHIVEJOB as jobs,
+VARIO_CLIENT as cli,
+UM_CURRENTDISTRIBUTEDARCHIVE as currarch,
+UM_UNIT as unit,
+UM_LOADINGSTATISTICS as loadstat
+where
+errstats.archiveid = jobs.archiveid 
+and  errstats.errorid != 0 
+and  jobs.clientid = cli.clientid
+and currarch.archivead = jobs.archiveid
+and unit.unitid = currarch.unitid
+and loadstat.archiveid = jobs.archiveid 
+and errstats.archiveid = loadstat.achiveid
+oredr by 1]]></sql>
+	</query>
+		<pdf version="VERSION_1_7" compression="CONTENT">
+			<docproperty title="null" author="null" subject="null" keywords="null" />
+			<cell toppadding="2" bottompadding="2" leftpadding="2" rightpadding="2" horizontalalign="LEFT" verticalalign="TOP" wrap="true" />
+			<column>
+				<heading font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="FIRST_PAGE" />
+				<footing font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="NONE" />
+				<blob blob="NONE" zip="false" />
+			</column>
+			<table font="null" size="10" style="NORMAL" color="-16777216" userowshading="false" oddrowshading="-1" evenrowshading="-1" showborders="true" spacingbefore="12" spacingafter="12" horizontalalign="LEFT" />
+			<header enable="false" generatedate="false">
+				<data>
+				null				</data>
+			</header>
+			<footer enable="false" generatedate="false">
+				<data value="null" />
+			</footer>
+			<pagesetup papersize="LETTER" orientation="1" measurement="in" margintop="1.0" marginbottom="1.0" marginleft="1.0" marginright="1.0" />
+		</pdf>
+</display>
+</displays>
