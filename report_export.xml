@@ -1,84 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <displays>
-<display id="75c8fe2b-016c-1000-8001-c0a8014db560" type="" style="Table" enable="true">
-	<name><![CDATA[hrreport]]></name>
+<display id="8a3f96e0-016c-1000-8001-c0a8014d211d" type="" style="Table" enable="true">
+	<name><![CDATA[User's comments Report]]></name>
 	<description><![CDATA[]]></description>
-	<tooltip><![CDATA[]]></tooltip>
+	<tooltip><![CDATA[shows users and comments]]></tooltip>
 	<drillclass><![CDATA[]]></drillclass>
 	<CustomValues>
 		<TYPE><![CDATA[horizontal]]></TYPE>
 	</CustomValues>
 	<query>
-		<sql><![CDATA[select emp.first_name,emp.last_name,emp.department_id
-from hr.employees emp
-order by 2]]></sql>
+		<sql><![CDATA[select ID,username,email,role from u0574777_omazhanov.users]]></sql>
 	</query>
 		<pdf version="VERSION_1_7" compression="CONTENT">
 			<docproperty title="null" author="null" subject="null" keywords="null" />
-			<cell toppadding="2" bottompadding="2" leftpadding="2" rightpadding="2" horizontalalign="LEFT" verticalalign="TOP" wrap="true" />
+			<cell toppadding="2" bottompadding="6" leftpadding="2" rightpadding="2" horizontalalign="LEFT" verticalalign="MIDDLE" wrap="false" />
 			<column>
-				<heading font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="FIRST_PAGE" />
-				<footing font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="NONE" />
+				<heading font="Agency FB" size="12" style="NORMAL" color="-16777216" rowshading="-9175041" labeling="FIRST_PAGE" />
+				<footing font="Agency FB" size="14" style="NORMAL" color="-16777216" rowshading="-1" labeling="ALL_PAGES" />
 				<blob blob="NONE" zip="false" />
 			</column>
-			<table font="null" size="10" style="NORMAL" color="-16777216" userowshading="false" oddrowshading="-1" evenrowshading="-1" showborders="true" spacingbefore="12" spacingafter="12" horizontalalign="LEFT" />
+			<table font="Agency FB" size="18" style="NORMAL" color="-16777216" userowshading="true" oddrowshading="-9175181" evenrowshading="-256" showborders="true" spacingbefore="12" spacingafter="12" horizontalalign="LEFT" />
 			<header enable="true" generatedate="false">
 				<data>
-				
-				
-				
-				
-				{\rtf1\ansi
-{\fonttbl\f0\fnil Monospaced;\f1\fnil Times New Roman;}
-
-\f1\fs24\i0\b0 Report Number 1
-}
-																				</data>
+								</data>
 			</header>
 			<footer enable="false" generatedate="false">
 				<data value="null" />
 			</footer>
 			<pagesetup papersize="LETTER" orientation="1" measurement="in" margintop="1.0" marginbottom="1.0" marginleft="1.0" marginright="1.0" />
 		</pdf>
-	<display id="" type="" style="Table" enable="true">
-		<name><![CDATA[local]]></name>
-		<description><![CDATA[]]></description>
-		<tooltip><![CDATA[]]></tooltip>
+	<display id="null" type="" style="Table" enable="true">
+		<name><![CDATA[Comment here]]></name>
+		<description><![CDATA[Here  comment goes]]></description>
+		<tooltip><![CDATA[comment tip]]></tooltip>
 		<drillclass><![CDATA[]]></drillclass>
 		<CustomValues>
 			<TYPE><![CDATA[horizontal]]></TYPE>
 		</CustomValues>
 		<query>
-			<sql><![CDATA[select  dep.department_name, loc.city, loc.street_address  
-from hr.departments dep, hr.locations loc
-where loc.location_id = dep.location_id
-and dep.department_id = :DEPARTMENT_ID
-order by 3]]></sql>
+			<sql><![CDATA[select c.id,u.username,c.comment from u0574777_omazhanov.comments c ,u0574777_omazhanov.users u  where c.id = :id and c.id=u.id]]></sql>
 			<binds>
-				<bind id="DEPARTMENT_ID">
-					<prompt><![CDATA[DEPARTMENT_ID]]></prompt>
-					<tooltip><![CDATA[DEPARTMENT_ID]]></tooltip>
+				<bind id="id">
+					<prompt><![CDATA[id]]></prompt>
+					<tooltip><![CDATA[id]]></tooltip>
 					<value><![CDATA[NULL_VALUE]]></value>
 					<bracket><![CDATA[null]]></bracket>
 				</bind>
 			</binds>
 		</query>
 			<pdf version="VERSION_1_7" compression="CONTENT">
-				<docproperty title="null" author="null" subject="null" keywords="null" />
+				<docproperty title="Title" author="null" subject="Report subject" keywords="null" />
 				<cell toppadding="2" bottompadding="2" leftpadding="2" rightpadding="2" horizontalalign="LEFT" verticalalign="TOP" wrap="true" />
 				<column>
 					<heading font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="FIRST_PAGE" />
 					<footing font="null" size="10" style="NORMAL" color="-16777216" rowshading="-1" labeling="NONE" />
 					<blob blob="NONE" zip="false" />
 				</column>
-				<table font="null" size="10" style="NORMAL" color="-16777216" userowshading="false" oddrowshading="-1" evenrowshading="-1" showborders="true" spacingbefore="12" spacingafter="12" horizontalalign="LEFT" />
+				<table font="Agency FB" size="10" style="NORMAL" color="-16777216" userowshading="false" oddrowshading="-1" evenrowshading="-1" showborders="true" spacingbefore="12" spacingafter="12" horizontalalign="LEFT" />
 				<header enable="false" generatedate="false">
 					<data>
 					
-					
-					
-					
-					null																									</data>
+					null										</data>
 				</header>
 				<footer enable="false" generatedate="false">
 					<data value="null" />
