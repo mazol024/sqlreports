@@ -68,5 +68,5 @@
 				<pagesetup papersize="LETTER" orientation="1" measurement="in" margintop="1.0" marginbottom="1.0" marginleft="1.0" marginright="1.0" />
 			</pdf>
 	</display>
-</display>
+<item  reload="false"  reloadparent="false" removeFromParent="false" className="oracle.dbtools.raptor.report.addin.DrillReportAction" classArgs="73cb2bd3-016c-1000-8002-c0a8014447fc" toolbar="false" ><title>Roles presented</title></item><item  reload="false"  reloadparent="false" removeFromParent="false" className="oracle.dbtools.raptor.report.addin.DrillReportAction" classArgs="8df175b6-016c-1000-801f-c0a80144b39d" toolbar="false" ><title>Current Date </title></item></display>
 </displays>
